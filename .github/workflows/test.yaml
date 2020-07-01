@@ -33,6 +33,8 @@ jobs:
         run: |
           esy import-dependencies _export
           rm -rf _export
+      - name: Esy build
+        run: esy build
       - name: Exporting dependencies
         if: steps.restore-cache.outputs.cache-hit != 'true'
         run: esy export-dependencies
